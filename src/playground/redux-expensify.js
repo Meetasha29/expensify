@@ -99,7 +99,7 @@ const filterReducer=(state=filterReducerDefaultState,action)=>{
     case 'SORT_AMOUNT':
     return{
       ...state,
-      sortBy: 'Amount'
+      sortBy: 'amount'
     };
     case 'SORT_DATE':
     return{
@@ -121,25 +121,46 @@ const filterReducer=(state=filterReducerDefaultState,action)=>{
   }
 }
 
-const store=createStore(combineReducers({
+const store=createStore
+(combineReducers({
   expenses: expensesReducer,
   filters: filterReducer
 
 })
 );
 const unsubscribe=store.subscribe(()=>{
-  console.log(store.getState());
+  const state=store.getState();
+  const visible=getVisibleExpenses(state.expenses,state.filters)
+  console.log(visible);
 })
+const getVisibleExpenses= (expenses,{text,sortBy,startDate,endDate})=>{
+  return expenses.filter((expense)=>{
+    const startDateMatch=typeof startDate!=='number' || expense.createdAt >= startDate;
+    const endDateMatch=typeof endDate!=='number' || expense.createdAt <= endDate;
+    const textMatch=expense.description.toLowerCase().includes(text.toLowerCase());
 
-const expenseOne=store.dispatch(addExpense({description: 'Rent',amount: 100}));
-const expenseTwo=store.dispatch(addExpense({description: 'Coffee',amount: 500}));
-store.dispatch(removeExpense({id: expenseOne.expense.id}));
-store.dispatch(editExpense(expenseTwo.expense.id,{amount: 800}));
-store.dispatch(setTextFilter('rent'));
+    return startDateMatch && endDateMatch && textMatch;
+
+  }).sort((a,b)=>{
+    if(sortBy=='date'){
+      return a.createdAt<b.createdAt? 1: -1;
+    }
+    else if(sortBy='amount'){
+      return a.amount<b.amount? 1:-1;
+    }
+  });
+};
+const expenseOne=store.dispatch(addExpense({description: 'Rent',amount: 10000}));
+const expenseTwo=store.dispatch(addExpense({description: 'Coffee',amount: 5000}));
+//store.dispatch(removeExpense({id: expenseOne.expense.id}));
+store.dispatch(editExpense(expenseTwo.expense.id,{amount: 80000}));
+store.dispatch(setTextFilter('e'));
 store.dispatch(sortByAmount());
-store.dispatch(sortByDate());
-store.dispatch(setStartDate(1250));
-store.dispatch(setEndDate(125));
+// store.dispatch(sortByDate());
+// store.dispatch(setStartDate());
+// store.dispatch(setEndDate());
+
+
 
 
 
