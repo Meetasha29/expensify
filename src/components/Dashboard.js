@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ExpenseList from './expenseList'
-
+import ExpenseList from './expenseList';
+import ExpenseListFilters from './ExpenseListFilters';
 const ExpenseDashboardPage=()=>{
   return(
     <div>
-    This is the dashboard page
+    <ExpenseListFilters />
     <ExpenseList />
   </div>
 );
