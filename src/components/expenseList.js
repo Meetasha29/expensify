@@ -6,7 +6,6 @@ const ExpenseList =(props)=>{
   return(
   <div>
     <h1>Expense List</h1>
-    {props.expenses.length}
     <ol>
       {
         props.expenses.map((expense)=>{
