@@ -9,7 +9,7 @@ export default class ExpenseForm extends React.Component{
     this.state={
       description: props.expense? props.expense.description : '',
       note: props.expense? props.expense.note : '',
-      amount: props.expense? (props.expense.amount / 100).toString() : '',
+      amount: props.expense? (props.expense.amount).toString() : '',
       createdAt: props.expense? moment(props.expense.createdAt) : moment(),
       calenderFocused: false,
       error: undefined,
@@ -28,7 +28,7 @@ export default class ExpenseForm extends React.Component{
   }
   onAmountChange=(e)=>{
     const amount=e.target.value;
-    if(!amount||amount.match(/^\d{1,}(\.\d{0,2})?$/)){
+    if(!amount||amount.match(/^\d{1,}$/)){
       this.setState(()=>({amount}));
     }
   }
@@ -51,7 +51,7 @@ export default class ExpenseForm extends React.Component{
       console.log("form submitted");
       this.props.onSubmit({
         description: this.state.description,
-        amount: parseFloat(this.state.amount,10)*100,
+        amount: parseFloat(this.state.amount),
         createdAt: this.state.createdAt.valueOf(),
         note: this.state.note
       });
