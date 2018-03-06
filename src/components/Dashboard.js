@@ -6,8 +6,10 @@ import ExpenseListFilters from './ExpenseListFilters';
 const ExpenseDashboardPage=()=>{
   return(
     <div>
-    <ExpenseListFilters />
+      <div className="content-container">
     <ExpensesSummary />
+    <ExpenseListFilters />
+  </div>
     <ExpenseList />
   </div>
 );
