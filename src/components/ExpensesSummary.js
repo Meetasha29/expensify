@@ -7,8 +7,8 @@ import expensesTotal from '../selectors/expenses-total';
 const ExpensesSummary=(props)=>{
   const expenseWord = props.length===1 ? 'expense' : 'expenses';
   return(
-    <div>
-      <h1>Viewing {props.length} {expenseWord} totalling &#8377;{props.total}</h1>
+    <div className="summary">
+      <h1>Viewing <span className="length">{props.length}</span> {expenseWord} totalling <span className="length">&#8377;{props.total}</span></h1>
   </div>
 );
 };

@@ -3,6 +3,7 @@
   box-shadow: 0 2px 2px #dddddd;
   z-index: 9999;
   padding: $xs-size 0;
+  margin-bottom: 0;
 }
 
 .header__title h1{
@@ -14,11 +15,4 @@
 
 .header__button{
   text-align: right;
-}
-
-@media (min-width: $desktop-breakpoint) {
-  .header{
-    margin-bottom: $xl-size;
-  }
-
 }
