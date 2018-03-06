@@ -4,12 +4,22 @@ import { BrowserRouter, Switch, Route,Link,NavLink} from 'react-router-dom';
 
 const Header=()=>{
   return(
-    <div>
+    <header className="header row">
+      <div className="content-container">
+      <div className="col span-1-of-2">
+      <Link className="header__title" to="/">
       <h1>Expensify</h1>
-      <NavLink to="/" activeClassName="is-active" exact={true}>Go home </NavLink>
-      <NavLink to="/create" activeClassName="is-active">Create Expense </NavLink>
-      <NavLink to="/help" activeClassName="is-active">help </NavLink>
+    </Link>
   </div>
+  <div className="header__button col span-1-of-2">
+    <Link to="/create">
+    <button className="button">
+    Add Expense
+  </button>
+</Link>
+</div>
+</div>
+  </header>
 );
 };
 

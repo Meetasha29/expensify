@@ -22,6 +22,8 @@ const expensesReducer=(state=expensesReducerDefaultState,action)=>{
       });
     case 'REMOVE_EXPENSE':
     return state.filter(({id})=>action.id!==id);
+    case 'SET_EXPENSE':
+    return action.expense;
     default:
     return state;
   }
