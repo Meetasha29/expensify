@@ -45,7 +45,7 @@ class ExpenseListFilters extends React.Component{
         </div>
 
 
-        <div className="date-range col span-3-of-9">
+        <div className="col span-3-of-9 date-range">
           <DateRangePicker
             startDate={this.props.filters.startDate}
             endDate={this.props.filters.endDate}

@@ -6,13 +6,15 @@ import {startAddExpense} from '../actions/expenses';
 
 const AddExpensePage=(props)=>{
   return(
-    <div>
+    <div className="content-container">
+      <div className="register-form">
     <ExpenseForm onSubmit={(expense)=>{
       props.dispatch(startAddExpense(expense));
       props.history.push('/')
       status: "add"
     }}/>
   </div>
+</div>
 );
 };
 
