@@ -1,0 +1,96 @@
+.form-title {
+  margin-top: $l-size;
+  text-align: center;
+  color: coral;
+}
+.register-form {
+  margin-top: $xl-size;
+  padding: 0 $l-size;
+  display: flex;
+  flex-direction: column;
+}
+.register-form .field {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  //display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+.register-form .field .input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #555;
+  box-sizing: border-box;
+  font-size: 18px;
+  height: 50px;
+  width: 60%;
+}
+
+.register-form .field .input:focus {
+  outline: none;
+}
+
+.register-form .field input::-webkit-input-placeholder {
+  color: #555;
+}
+
+.register-form .field input:focus::-webkit-input-placeholder {
+  color: coral;
+}
+
+.register-form .field .input:focus+.underline {
+  transform: scale(1);
+}
+
+.register-form .field .underline {
+  background-color: coral;
+  display: block;
+  height: 2px;
+  //position: absolute;
+  -webkit-transform: scale(0, 1);
+  transform: scale(0, 1);
+  transition: all 0.3s ease;
+  width: 60%;
+  margin-top: -2px;
+  margin-left: 20%;
+}
+
+.register-form .field .text-area {
+  padding: 5px 10px ;
+  font-size: 18px;
+  height: 100px;
+  width: 60%;
+  margin-top: $s-size;
+}
+
+.register-form .field .SingleDatePicker {
+  border-bottom: 1px solid #555;
+  box-sizing: border-box;
+  font-size: 18px;
+  height: 50px;
+  width: 60%;
+  text-align: left;
+  margin-top: $s-size;
+
+}
+.register-form .field-button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  //display: inline-block;
+  width: 100%;
+  //text-align: cent;
+}
+.register-form .field-button .form-button{
+  box-sizing: border-box;
+  font-size: 18px;
+  margin-left: 20%;
+  margin-top: $s-size;
+}
+
+.register-form .field-button .remove-button{
+  box-sizing: border-box;
+  font-size: 18px;
+  margin-left: 20%;
+  margin-top: $s-size;
+}

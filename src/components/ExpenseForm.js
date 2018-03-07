@@ -60,20 +60,34 @@ export default class ExpenseForm extends React.Component{
   render(){
     return(
       <div>
+          {this.state.status? <h1 className="form-title">Update Expense</h1> : <h1 className="form-title">Add Expense</h1>}
           {this.state.error && <p> {this.state.error}</p>  }
+
         <form onSubmit={this.onSubmit}>
+          <div className="field">
           <input
+            className="input"
             type="text"
             placeholder="Description"
             autoFocus
             value={this.state.description}
             onChange={this.onDescriptionChange}
           />
-            <input type="text"
+            <span className="underline"></span>
+        </div>
+
+        <div className="field">
+            <input
+            className="input"
+            type="text"
             placeholder="Amount"
             value={this.state.amount}
             onChange={this.onAmountChange}
           />
+            <span className="underline"></span>
+        </div>
+
+        <div className="field">
           <SingleDatePicker
             date={this.state.createdAt}
             onDateChange={this.onDateChange}
@@ -82,14 +96,22 @@ export default class ExpenseForm extends React.Component{
             numberOfMonths= {1}
             isOutsideRange={()=> false}
           />
-            <textarea placeholder="add a note for your expenses(optional)"
+        </div>
+
+        <div className="field">
+            <textarea className="text-area"
+              placeholder="add a note for your expenses(optional)"
               value={this.state.note}
               onChange={this.onNoteChange}>
             </textarea>
+          </div>
+
+    <div className="field-button">
             {this.state.status==="edit"}
-            <button className="button">{this.state.status==="edit" ?
+            <button className="button form-button">{this.state.status==="edit" ?
               "Update Expense":"Add Expense" }
             </button>
+          </div>
         </form>
       </div>
     )

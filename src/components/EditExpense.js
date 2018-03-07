@@ -7,7 +7,8 @@ import ExpenseForm from './ExpenseForm';
 
 const EditExpensePage=(props)=>{
   return(
-    <div>
+    <div className="content-container">
+      <div className="register-form">
     <ExpenseForm onSubmit={(expense)=>{
       props.dispatch(startEditExpense(props.expense.id,expense));
       props.history.push('/')
@@ -15,12 +16,15 @@ const EditExpensePage=(props)=>{
     expense={props.expense}
     status= "edit"
     />
-    <button onClick={()=>{
+    <div className="field-button">
+    <button className="button remove-button" onClick={()=>{
       props.dispatch(startRemoveExpense({id: props.expense.id}));
       props.history.push('/')
 
     }}>Remove</button>
+  </div>
 
+</div>
    </div>
 );
 };
