@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route,Link,NavLink} from 'react-router-dom';
-
-const Header=()=>{
+import {connect} from 'react-redux';
+import {startLogout} from '../actions/auth';
+const Header=({startLogout})=>{
   return(
     <header className="header row">
       <div className="content-container">
@@ -18,9 +19,14 @@ const Header=()=>{
   </button>
 </Link>
 </div>
+<button
+  onClick={startLogout}>logout</button>
 </div>
   </header>
 );
 };
+const mapDispatchToProps = (dispatch) =>({
+  startLogout: ()=>dispatch(startLogout())
+});
 
-export default Header;
+export default connect(undefined ,mapDispatchToProps)(Header);

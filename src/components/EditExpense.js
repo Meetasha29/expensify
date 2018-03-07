@@ -11,7 +11,7 @@ const EditExpensePage=(props)=>{
       <div className="register-form">
     <ExpenseForm onSubmit={(expense)=>{
       props.dispatch(startEditExpense(props.expense.id,expense));
-      props.history.push('/')
+      props.history.push('/dashboard')
     }}
     expense={props.expense}
     status= "edit"
@@ -19,7 +19,7 @@ const EditExpensePage=(props)=>{
     <div className="field-button">
     <button className="button remove-button" onClick={()=>{
       props.dispatch(startRemoveExpense({id: props.expense.id}));
-      props.history.push('/')
+      props.history.push('/dashboard')
 
     }}>Remove</button>
   </div>

@@ -12,7 +12,9 @@ const config = {
 firebase.initializeApp(config);
 
 const database=firebase.database();
-export { firebase, database as default };
+const googleProvider = new firebase.auth.GoogleAuthProvider();
+
+export { firebase,googleProvider, database as default };
 //arrays
 // database.ref('expenses').push({
 //   description: 'Rent',

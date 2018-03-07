@@ -10,7 +10,7 @@ const AddExpensePage=(props)=>{
       <div className="register-form">
     <ExpenseForm onSubmit={(expense)=>{
       props.dispatch(startAddExpense(expense));
-      props.history.push('/')
+      props.history.push('/dashboard')
       status: "add"
     }}/>
   </div>

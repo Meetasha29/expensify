@@ -8,7 +8,7 @@ import {setTextFilter,sortByAmount,sortByDate,setStartDate,setEndDate} from './a
 import getVisibleExpenses from './selectors/expenses';
 import './style/style.scss';
 import 'normalize.css/normalize.css'
-import './firebase/firebase';
+import {firebase }from './firebase/firebase';
 
 const store=configureStore();
 const doc=document.getElementById('app');
@@ -29,8 +29,17 @@ const jsx=(
     <AppRouter />
   </Provider>
 );
+
 ReactDOM.render(<p>Loading...</p>,doc);
 
 store.dispatch(startSetExpense()).then(()=>{
   ReactDOM.render(jsx,doc);
+});
+firebase.auth().onAuthStateChanged((user)=>{
+  if(user){
+    console.log('log in');
+  }
+  else{
+    console.log('log out');
+  }
 });
