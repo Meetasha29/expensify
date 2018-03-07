@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import AppRouter,{history} from './routers/AppRouter.js'
 import configureStore from './store/configureStore';
 import {addExpense,removeExpense,editExpense,startSetExpense} from './actions/expenses.js';
-import {setTextFilter,sortByAmount,sortByDate,setStartDate,setEndDate} from './actions/filters.js';
+import {login,logout} from './actions/auth';
 import getVisibleExpenses from './selectors/expenses';
 import './style/style.scss';
 import 'normalize.css/normalize.css'
@@ -41,6 +41,7 @@ ReactDOM.render(<p>Loading...</p>,doc);
 
 firebase.auth().onAuthStateChanged((user)=>{
   if(user){
+    store.dispatch(login(user.uid));
     store.dispatch(startSetExpense()).then(()=>{
     renderApp();
     if(history.location.pathname === '/'){
@@ -49,6 +50,7 @@ firebase.auth().onAuthStateChanged((user)=>{
     });
   }
   else{
+    store.dispatch(logout());
     renderApp();
     history.push('/');
   }

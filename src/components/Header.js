@@ -8,7 +8,7 @@ const Header=({startLogout})=>{
     <header className="header row">
       <div className="content-container">
       <div className="col span-1-of-2">
-      <Link className="header__title" to="/">
+      <Link className="header__title" to="/dashboard">
       <h1>Expensify</h1>
     </Link>
   </div>
