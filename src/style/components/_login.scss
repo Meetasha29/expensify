@@ -1,0 +1,31 @@
+.box-layout {
+  align-items: center;
+  background: url('/images/bg.jpg');
+  background-size: cover;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+}
+
+.box-layout__box {
+  background: fade-out(white, .15);
+  border-radius: 3px;
+  border: 1px solid $light-grey;
+  padding: $l-size $m-size;
+  text-align: center;
+  width: 30rem;
+}
+
+.box-layout__title {
+  font-weight: bold;
+  margin: 0 0 $m-size 0;
+  line-height: 1;
+}
+.box-layout__subtitle {
+  font-weight: 500;
+  font-size: $font-size-large;
+  color: $lighter-grey;
+  margin: 0 0 $m-size 0;
+  line-height: 1;
+}
