@@ -21,11 +21,26 @@ class ExpenseListFilters extends React.Component{
     return(
     <div className="row filter-container">
         <div className="text-filter col span-2-of-9">
-          <input className="input" type="text" value={this.props.filters.text} onChange={(e)=>{
-              this.props.dispatch(setTextFilter(e.target.value));
-          }}/>
+          <select required
+            className="input"
+            value={this.props.filters.text}
+            onChange={(e)=>{
+             this.props.dispatch(setTextFilter(e.target.value));
+         }}
+            >
+            <option value="">Choose category</option>
+            <option value="Food">Food</option>
+            <option value="Grocery">Grocery</option>
+            <option value="Vehicle">Vehicle</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Bill">Bill</option>
+            <option value="Transportation">Transportation</option>
+            <option value="Health and care">Heath and Care</option>
+            <option value="Fashion">Fasion</option>
+          </select>
           <span className="underline"></span>
         </div>
+
 
         <div className="date-amount-sort col span-1-of-9">
           <select

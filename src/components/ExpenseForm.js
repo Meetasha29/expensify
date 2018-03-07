@@ -7,6 +7,7 @@ export default class ExpenseForm extends React.Component{
     super(props);
 
     this.state={
+      category: props.expense? props.expense.category : '',
       description: props.expense? props.expense.description : '',
       note: props.expense? props.expense.note : '',
       amount: props.expense? (props.expense.amount).toString() : '',
@@ -17,7 +18,10 @@ export default class ExpenseForm extends React.Component{
     };
   }
 
-
+  onCategoryChange=(e)=>{
+    const category= e.target.value;
+    this.setState(()=>({category}));
+  }
   onDescriptionChange=(e)=>{
     const description= e.target.value;
     this.setState(()=>({description}));
@@ -43,13 +47,14 @@ export default class ExpenseForm extends React.Component{
   onSubmit=(e)=>{
     e.preventDefault();
 
-    if(!this.state.description || !this.state.amount){
-      this.setState(()=>({error: "Please provide description and amount"}));
+    if(!this.state.category || !this.state.amount){
+      this.setState(()=>({error: "Please provide category and amount"}));
     }
     else{
       this.setState(()=>({error: undefined}));
       console.log("form submitted");
       this.props.onSubmit({
+        category: this.state.category,
         description: this.state.description,
         amount: parseFloat(this.state.amount),
         createdAt: this.state.createdAt.valueOf(),
@@ -64,12 +69,31 @@ export default class ExpenseForm extends React.Component{
           {this.state.error && <p> {this.state.error}</p>  }
 
         <form onSubmit={this.onSubmit}>
+
+          <div className="field">
+          <select required
+            className="input"
+            value={this.state.category}
+          onChange={this.onCategoryChange}
+            >
+            <option value="">Choose category</option>
+            <option value="Food">Food</option>
+            <option value="Grocery">Grocery</option>
+            <option value="Vehicle">Vehicle</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Bill">Bill</option>
+            <option value="Transportation">Transportation</option>
+            <option value="Health and care">Heath and Care</option>
+            <option value="Fashion">Fasion</option>
+          </select>
+            <span className="underline"></span>
+        </div>
+
           <div className="field">
           <input
             className="input"
             type="text"
             placeholder="Description"
-            autoFocus
             value={this.state.description}
             onChange={this.onDescriptionChange}
           />

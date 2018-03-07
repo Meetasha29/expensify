@@ -19,7 +19,7 @@ const Header=({startLogout})=>{
   </button>
 </Link>
 </div>
-<button
+<button className="button logout-button"
   onClick={startLogout}>logout</button>
 </div>
   </header>
