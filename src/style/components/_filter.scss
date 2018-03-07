@@ -1,0 +1,72 @@
+.filter-container {
+  padding-bottom: $m-size
+}
+
+.text-filter {
+  .input{
+    background-color: white;
+    box-sizing: content-box;
+    font-size: 18px;
+    height: 45px;
+    width: 100%;
+    padding: 1px 2px;
+}
+margin-right: $l-size;
+}
+
+.text-filter .input:focus {
+  //transform: scale(1);
+  outline: none;
+  border: 2px solid coral;
+}
+
+.text-filter input::-webkit-input-placeholder {
+  color: #555;
+}
+
+.text-filter input:focus::-webkit-input-placeholder {
+  color: coral;
+}
+
+.date-amount-sort select {
+  webkit-appearance: none;
+  appearance:none;
+  width:120%;
+  background:none;
+  background:transparent;
+  border:none;
+  outline:none;
+  cursor: all-scroll;
+  vertical-align: middle;
+}
+
+.date-amount-sort {
+  margin-left: 0;
+  margin-right: $s-size;
+  background: rgb(224, 224, 224);
+  overflow: hidden;
+  display: inline-block;
+  color: #525252;
+  font-weight: 300;
+  font-size: 18px;
+  -webkit-border-radius: 5px 4px 4px 5px/5px 5px 4px 4px;
+  -moz-border-radius: 5px 4px 4px 5px/5px 5px 4px 4px;
+  border-radius: 5px 4px 4px 5px/5px 5px 4px 4px;
+  -webkit-box-shadow: 0 0 5px rgba(123, 123, 123, 0.2);
+  -moz-box-shadow: 0 0 5px rgba(123,123,123,.2);
+  box-shadow: 0 0 5px rgba(123, 123, 123, 0.2);
+  border: solid 1px #DADADA;
+  position: relative;
+  cursor: pointer;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-right: 20px;
+  height: 4.0rem;
+  margin-top: 14px;
+}
+
+.date-range{
+  //border: 4px solid red;
+  height: $l-size;
+
+}
