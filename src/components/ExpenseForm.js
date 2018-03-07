@@ -66,7 +66,7 @@ export default class ExpenseForm extends React.Component{
     return(
       <div>
           {this.state.status? <h1 className="form-title">Update Expense</h1> : <h1 className="form-title">Add Expense</h1>}
-          {this.state.error && <p> {this.state.error}</p>  }
+          {this.state.error && <p className="add-error"> {this.state.error}</p>  }
 
         <form onSubmit={this.onSubmit}>
 
