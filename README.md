@@ -12,9 +12,9 @@ where they can add their expenses and review their monthly expenses.
 
 ## Technologies Used
 
-   -Firebase API - for server side programming.
-   -React.Js & Redux.Js - for client side programming.
-   -HTML and CSS for designing
+   - Firebase API - for server side programming.
+   - React.Js & Redux.Js - for client side programming.
+   - HTML and CSS for designing
 
 
 ## Acknowledgments
