@@ -16,3 +16,14 @@
 .header__button{
   text-align: right;
 }
+.add-button{
+  margin-right: $l-size;
+}
+@media (max-width: 768px) {
+  .add-button,.logout-button{
+  display: inline;
+}
+  .logout-button{
+  margin-right: $l-size;
+  }
+}

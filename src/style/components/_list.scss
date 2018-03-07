@@ -49,6 +49,14 @@
   margin: 0;
   word-break: break-all;
 }
+.list-item__category {
+  font-size: $font-size-large;
+  font-weight: bold;
+  margin: 0;
+  word-break: break-all;
+  margin-bottom: 3px;
+}
+
 
 .list-item__sub-title {
   color: $grey;
@@ -56,6 +64,7 @@
 }
 
 .list-item__data {
+  font-weight: bold;
   margin: $s-size 0 0 0;
   @media (min-width: $desktop-breakpoint) {
     margin: 0;

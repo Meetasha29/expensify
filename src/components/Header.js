@@ -14,13 +14,15 @@ const Header=({startLogout})=>{
   </div>
   <div className="header__button col span-1-of-2">
     <Link to="/create">
-    <button className="button">
+    <button className="button add-button">
     Add Expense
   </button>
 </Link>
+
+  <button className="button logout-button"
+    onClick={startLogout}>logout</button>
 </div>
-<button className="button logout-button"
-  onClick={startLogout}>logout</button>
+
 </div>
   </header>
 );

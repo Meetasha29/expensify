@@ -1,0 +1,17 @@
+.show-for-mobile {
+  @media (min-width: 631px ) {
+    display: none;
+  }
+}
+
+.show-for-desktop {
+  @media (max-width: 720px) {
+    display: none;
+  }
+}
+
+.show-for-tablet{
+  @media (max-width: 630px) {
+    display: none;
+  }
+}
