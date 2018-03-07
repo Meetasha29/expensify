@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import AppRouter from './routers/AppRouter.js'
+import AppRouter,{history} from './routers/AppRouter.js'
 import configureStore from './store/configureStore';
 import {addExpense,removeExpense,editExpense,startSetExpense} from './actions/expenses.js';
 import {setTextFilter,sortByAmount,sortByDate,setStartDate,setEndDate} from './actions/filters.js';
@@ -29,17 +29,27 @@ const jsx=(
     <AppRouter />
   </Provider>
 );
+let hasRendered = false;
 
+const renderApp =()=>{
+  if(!hasRendered){
+    ReactDOM.render(jsx,doc);
+    hasRendered=true;
+  }
+};
 ReactDOM.render(<p>Loading...</p>,doc);
 
-store.dispatch(startSetExpense()).then(()=>{
-  ReactDOM.render(jsx,doc);
-});
 firebase.auth().onAuthStateChanged((user)=>{
   if(user){
-    console.log('log in');
+    store.dispatch(startSetExpense()).then(()=>{
+    renderApp();
+    if(history.location.pathname === '/'){
+      history.push('/dashboard');
+    }
+    });
   }
   else{
-    console.log('log out');
+    renderApp();
+    history.push('/');
   }
 });
